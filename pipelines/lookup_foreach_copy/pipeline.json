@@ -1,0 +1,58 @@
+{
+}
+},
+{
+"name": "SetTableVar",
+"type": "SetVariable",
+"typeProperties": {
+"variableName": "tableName",
+"value": "@item().TABLE_NAME"
+}
+},
+{
+"name": "Copy_Table_To_Lakehouse",
+"type": "Copy",
+"dependsOn": [
+{
+"activity": "SetSchemaVar",
+"dependencyConditions": ["Succeeded"]
+},
+{
+"activity": "SetTableVar",
+"dependencyConditions": ["Succeeded"]
+}
+],
+"typeProperties": {
+"source": {
+"type": "SqlSource",
+"sqlReaderQuery": "@concat('SELECT * FROM ', variables('schemaName'), '.', variables('tableName'))"
+},
+"sink": {
+"type": "DelimitedTextSink",
+"storeSettings": {
+"type": "AzureBlobFSWriteSettings",
+"fileNamePrefix": "@concat(variables('schemaName'), '_', variables('tableName'))"
+}
+}
+},
+"inputs": [],
+"outputs": [],
+"linkedServiceName": {
+"referenceName": "LS_OnPremSqlServer",
+"type": "LinkedServiceReference"
+}
+}
+]
+}
+}
+],
+"variables": {
+"schemaName": {
+"type": "String"
+},
+"tableName": {
+"type": "String"
+}
+}
+}
+}
