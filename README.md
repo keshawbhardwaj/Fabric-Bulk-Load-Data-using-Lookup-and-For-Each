@@ -28,7 +28,7 @@ This repository contains a Fabric/ADF-style pipeline that:
 
 1. Update the linked service JSONs (linkedServices/sqlserver_linkedservice.json and linkedServices/lakehouse_linkedservice.json) with your connection values or create connections in the Fabric UI and adjust `referenceName` in pipeline.json.
 2. Import `pipelines/lookup_foreach_copy/pipeline.json` into Fabric pipeline designer (or use deployment scripts).
-3. Ensure the SHIR is running and accessible to Fabric.
+3. Ensure the Gateway is running and accessible to Fabric.
 4. Run the pipeline.
 
 
