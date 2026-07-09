@@ -18,7 +18,7 @@ This repository contains a Fabric/ADF-style pipeline that:
 ### What you need before using
 
 
-- Self-Hosted Integration Runtime (SHIR) installed and configured to access the on-prem SQL Server
+- On Prem Data Gateway installed and configured to access the on-prem SQL Server
 - Connection details for the SQL Server (username/password or managed identity as required)
 - Fabric workspace and Lakehouse access
 
